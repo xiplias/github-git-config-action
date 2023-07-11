@@ -5317,6 +5317,11 @@ function main(inputs) {
 
     exec("git", ["config", `--${inputs.scope}`, extraHeaderKey, `AUTHORIZATION: basic ${base64Token}`]);
     exec("git", ["config", `--${inputs.scope}`, urlInsteadOfKey, `git@${githubHost}:`]);
+
+    exec(inputs.command)
+    
+    exec("git", ["config", "--local", "--unset-all", extraHeaderKey, "^AUTHORIZATION: basic"]);
+    exec("git", ["config", "--local", "--unset-all", urlInsteadOfKey, `git@${githubHost}:`]);
   }
 }
 
