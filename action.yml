@@ -9,6 +9,8 @@ inputs:
     default: global
   github-token:
     description: GitHub personal access token used as git credentials
+  command:
+    description: Command to run
 runs:
   using: "node16"
   main: "dist/index.js"
